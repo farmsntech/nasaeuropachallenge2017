@@ -29,8 +29,7 @@ session.setAttribute("onetime",n);
 		  }
 	  });
 	});</script>
-	<%=number%>
-	<%=n%>
+	
 <form action="registration.jsp">
 
 Enter otp:<input type="integer" name="otp"/>

@@ -13,5 +13,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/home/orienit/R/x86_64-pc-linux-gnu-library/3.0/Rserve/java/Rserve.jar"/>
+	<classpathentry kind="lib" path="/home/orienit/R/x86_64-pc-linux-gnu-library/3.0/Rserve/java/REngine.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/JRI.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

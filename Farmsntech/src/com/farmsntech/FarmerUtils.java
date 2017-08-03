@@ -1,14 +1,17 @@
 package com.farmsntech;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import com.farmsntech.db.DbUtils;
 import com.farmsntech.Farmer;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,11 +26,12 @@ public class FarmerUtils {
 	{ 	HttpSession session = request.getSession(true); 
 long mobileno = (Long)session.getAttribute("mobile");
 String password = session.getAttribute("password").toString();
-
+System.out.println(mobileno);
+BigDecimal n = new BigDecimal(mobileno);
 Connection con = null;
 PreparedStatement ps = null;
 ResultSet rs = null;
-String sql = "insert into farmer(password,mobile) values (?,?)";
+String sql = "insert into farmer(password,mobile_no) values (?,?)";
 
 	try {
 		
@@ -36,10 +40,10 @@ String sql = "insert into farmer(password,mobile) values (?,?)";
 		ps = con.prepareStatement(sql);
 		
 		ps.setString(1, password);
-		ps.setLong(2, mobileno);
+		ps.setBigDecimal(2,n);
+		System.out.println(n);
 		
 		ps.execute();
-		
 		response.sendRedirect("mainpage.jsp");
 		} catch (SQLException sqe) {
 		System.out.println(sqe);
