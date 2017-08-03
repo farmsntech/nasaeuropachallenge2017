@@ -1,1 +1,0 @@
-# nasaeuropachallenge2017
