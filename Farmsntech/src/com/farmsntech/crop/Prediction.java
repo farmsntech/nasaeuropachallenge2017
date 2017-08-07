@@ -2,12 +2,25 @@ package com.farmsntech.crop;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.farmsntech.Farmer;
+import com.farmsntech.Temp;
+import com.farmsntech.weather;
+import com.farmsntech.db.DbUtils;
 
 public class Prediction {
 
 	    public static float[] read() {
 
-	        String csvFile = "/home/orienit/MyData3.csv";
+	        String csvFile = "/home/orienit/r/MyDataFinal.csv";//use local system path of this file.
 	        String line = "";
 	        String cvsSplitBy = ",";
 	        int count=0;
@@ -39,9 +52,55 @@ public class Prediction {
 	    }
 	
 	
-	public static String predict(String a,int c,int crop,int sid)
-	{   
+	
+		 public static List selectcrop() throws ClassNotFoundException,
+					IOException {
+						
+				Connection con = null;
+				PreparedStatement ps = null;
+				ResultSet r = null;
+				String sql2 = "select * from weather ";
+				List<weather> list = new ArrayList<weather>();
+				
+		       
+		   try{
+
+			con = DbUtils.getConnection();
+			ps = con.prepareStatement(sql2);
+			
+			r = ps.executeQuery();
+			while (r.next()) {
+			float min= r.getFloat("min");
+				float max  = r.getFloat("max");
+				float rain= r.getFloat("rain");
+				weather weath=new weather(min,max,rain);
+				list.add(weath);
+				
+
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+		}
 		
+		 
+	 
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	public static String predict(String a,int c,int crop,int sid) throws IOException
+	{   
+		Temp.add();
 		float[] wcast=read();
 		System.out.println(wcast[0]);
 		String[] weather = a.split(",");
@@ -49,7 +108,8 @@ public class Prediction {
 		
 		float[] w=new float[40];
 		
-		if(sid==1){
+if(sid==1)
+{
 			
 			int alert=0;
 		for(i=0;i<21;i++)
@@ -57,6 +117,19 @@ public class Prediction {
 		 
 		w[i] = Float.parseFloat(weather[i]);
 		}
+		
+		
+		
+		try{
+		UpdateUtils.update(w[0], w[1], w[2]);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		
+		
 		
 		for(i=0;i<8;i++)
 		{
@@ -141,11 +214,28 @@ public class Prediction {
 			return msg;//wait for nxt msg	//scheduler
 		}
 	}}
-		}
+		
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
 		
 		
 		else if(sid==2)  			
-		{ int alert=0;
+		{ 
+			
+			int alert=0;
 								//calamity
 			for(i=0;i<21;i++)
 			{
@@ -160,12 +250,19 @@ public class Prediction {
 				}
 			}
 			
-			
-			
-			
 		}
+
+
+
+
+
+
+
+
+
 		else if(sid==3)						//vegetative phase
-		{    int alert=0;
+		{   
+			int alert=0;
 			//String msg="";					//2-3 cm of water level
 			for(i=0;i<21;i++)
 			{
@@ -178,10 +275,10 @@ public class Prediction {
 				}
 			}
 			if(alert==1){
+				
 			String msg="There will be heavy rain in coming days.Build a passage to drain extra water.Minatain water level of 2-3 cm"; 	
 			return msg;//passage bnao
 			}
-			
 			
 		}
 		return null;

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+    <title>Compass Starter by Ariona, Rian</title>
+
+    <!-- Loading third party fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+    <link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Loading main css file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Custom CSS -->
+    <link href="csspredict/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="csspredict/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
+
+
+
+    <style>
+        .btn-round-lg {
+            border-radius: 22.5px;
+        }
+        
+        .btn-round {
+            border-radius: 25px;
+        }
+        
+        .btn-round-sm {
+            border-radius: 15px;
+        }
+        
+        .btn-round-xs {
+            border-radius: 11px;
+            padding-left: 10px;
+            padding-right: 10px;
+        } 
+        
+        
+        .dropbtn {
+    background-color: #009ad8;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}s
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="site-content">
+        <div class="site-header">
+            <div class="container">
+                <a href="index.html" class="branding">
+                    <img src="images/logo.png" alt="" class="logo">
+                    <div class="logo-type">
+                        <h1 class="site-title" style="font-family:sarif;">FarmsNtech</h1>
+                        <small class="site-description"></small>
+                    </div>
+                </a>
+
+                <!-- Default snippet for navigation -->
+                <div class="main-navigation">
+                    <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+                    <ul class="menu">
+                        <li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
+                        <li class="menu-item"><a href="news.html">PAST CROP</a></li>
+                        <li class="menu-item"><a href="live-cameras.html">ONGOING CROP</a></li>
+                        
+                    </ul>
+                    <!-- .menu -->
+                </div>
+                <!-- .main-navigation -->
+
+                <div class="mobile-navigation"></div>
+
+            </div>
+        </div>
+        <!-- .site-header -->
+
+        <div class="hero" data-bg-image="images/i11.jpg" style="height:70%;">
+        <br><br><br><br><br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+
+                      <div class="dropdown">
+                          <button class="dropbtn btn-round">  <b>Choose Your Crop </b> </button>
+                          <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                          </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <form action="#" class="find-location">
+                            <input type="text" placeholder="Find your location...">
+                            <input type="submit" value="Find">
+                        </form>
+                    </div>
+                    
+                     <div class="col-md-1">
+                        <b style="font-size:30px;">OR</b>
+                    </div>
+
+                    <div class="col-md-2">
+                        <form action="#" class="find-location">
+                                    
+                           <a class="btn btn-primary btn-round " style="background-color:#009ad8; color:white; font-size:22px; padding:7px;"> <i class="fa fa-crosshairs"></i>Track Me </a>
+                        </form>
+                    </div>
+                </div>
+                <br><br><br><br><br><br>
+                 <a style="float:right;"><button class="dropbtn btn-round">  <b>PREDICT</b> </button></a>
+            </div>
+
+        </div>
+        
+
+
+        
+        
+
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Dropdown Hover JS -->
+    <script src="js/bootstrap-dropdownhover.min.js"></script>
+
+</body>
+
+</html>

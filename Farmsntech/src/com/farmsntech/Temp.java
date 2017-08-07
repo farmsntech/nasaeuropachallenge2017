@@ -17,12 +17,31 @@ package com.farmsntech;
 	            connection = new RConnection();
 
 	            /* Note four slashes (\\\\) in the path */
-	         //   connection.eval("source('algo3.R')");
-	            connection.eval("source('/home/orienit/algo3.R')");
-	            int num1=10;
-	            int num2=20;
-	            int sum=connection.eval("myAdd("+num1+","+num2+")").asInteger();
+	            connection.eval("source('/home/---/algo1.R')");//use local system path of this file.
+	            int sum=connection.eval("myAdd()").asInteger();
 	            System.out.println("The sum is=" + sum);
+	            
+	            connection.eval("source('/home/---/algo2.R')");//use local system path of this file. 
+	            int sum1=connection.eval("myAdd()").asInteger();
+	            System.out.println("The sum is=" + sum1);
+	            
+	            connection.eval("source('/home/---/algo3.R')");//use local system path of this file. 
+	            int sum2=connection.eval("myAdd()").asInteger();
+	            System.out.println("The sum is=" + sum2);
+	            
+	            connection.eval("source('/home/---/algo4.R')");//use local system path of this file. 
+	            int sum3=connection.eval("myAdd()").asInteger();
+	            System.out.println("The sum is=" + sum2);
+	            
+	            connection.eval("source('/home/---/algo5.R')");//use local system path of this file. 
+	            int sum4=connection.eval("myAdd()").asInteger();
+	            System.out.println("The sum is=" + sum2);
+	            
+	            connection.eval("source('/home/---/algofinal.R')");//use local system path of this file. 
+	            int sum5=connection.eval("myAdd()").asInteger();
+	            System.out.println("The sum is=" + sum2);
+	            
+	            
 	        } catch (RserveException e) {
 	            e.printStackTrace();
 	        } catch (REXPMismatchException e) {
